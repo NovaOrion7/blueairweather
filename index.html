@@ -53,6 +53,13 @@
     background: var(--bg-gradient-dark);
     color: var(--text-light);
   }
+  
+  body.dark h1,
+  body.dark h2,
+  body.dark h3 {
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
 
   .container {
     max-width: 1000px;
@@ -152,6 +159,10 @@
   body.light .feature-card h3 {
     color: #0066cc;
   }
+  
+  body.dark .feature-card h3 {
+    color: #a8d8ff;
+  }
 
   .feature-card p {
     font-size: 1rem;
@@ -174,8 +185,13 @@
     text-decoration: underline;
   }
   
-  body.light a:hover {
-    color: #004499;
+  body.dark a {
+    color: #a8d8ff;
+    font-weight: 500;
+  }
+  
+  body.dark a:hover {
+    color: #ffea94;
   }
 
   footer {
@@ -385,7 +401,7 @@
 
   body.light .links-section {
     background: rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.15);
   }
 
   .links-section a {
@@ -459,6 +475,9 @@
     <select id="language">
       <option value="en">English</option>
       <option value="tr">Türkçe</option>
+      <option value="de">Deutsch</option>
+      <option value="ja">日本語</option>
+      <option value="pt">Português</option>
     </select>
     
     <div class="theme-toggle">
@@ -611,12 +630,161 @@
       developerTitle: "Geliştirici Bilgileri",
       developerStatus: "<strong>App-ads.txt Durumu:</strong> Aktif",
       footerText: "© 2025 Blue Air. Tüm hakları saklıdır."
+    },
+    de: {
+      title: "🌤️ Blue Air - Wetter-App",
+      description: "Moderne und benutzerfreundliche Wetter-App. Echtzeit-Wetterinformationen, 5-Tage-Prognose und ein unterhaltsames Mini-Spiel!",
+      featuresTitle: "Funktionen",
+      feature1Title: "🌍 Mehrsprachige Unterstützung",
+      feature1Desc: "Verfügbar in Türkisch, Englisch, Japanisch, Deutsch und Portugiesisch",
+      feature2Title: "🎨 Themenauswahl",
+      feature2Desc: "Wählen Sie zwischen Hell-, Dunkel- oder automatischen Designs nach Ihren Vorlieben",
+      feature3Title: "📍 GPS-Standortunterstützung",
+      feature3Desc: "Erkennen Sie automatisch Ihren Standort für genaue Wetterinformationen",
+      feature4Title: "🔍 Stadtsuche",
+      feature4Desc: "Suchen Sie nach Wetterinformationen für jede Stadt der Welt",
+      feature5Title: "⭐ Speichern Sie Lieblingsstädte",
+      feature5Desc: "Speichern Sie Ihre häufig besuchten Städte für schnellen Zugriff",
+      feature6Title: "⏱️ Detaillierte Vorhersagen",
+      feature6Desc: "3-stündliche Updates und 5-Tage-Wettervorhersagen",
+      feature7Title: "🌦️ Animierte Wettersymbole",
+      feature7Desc: "Lottie-Animationen für schöne und intuitive Wetterdarsstellungen",
+      feature8Title: "☔ Regenschirm-Regen-Fang-Spiel",
+      feature8Desc: "Ein unterhaltsames Mini-Spiel für Ihre Wettercheck-Zeit",
+      feature9Title: "🔔 Hintergrundbenachrichtigungen",
+      feature9Desc: "Erhalten Sie wichtige Wetterwarnungen auch bei geschlossener App",
+      feature10Title: "📱 Modernes Design",
+      feature10Desc: "Klare Randlos-Oberfläche mit intuitiver Navigation",
+      contactTitle: "Kontakt",
+      contact: "Für Fragen und Support: <strong>nova.orion.dev@gmail.com</strong>",
+      linksTitle: "Links",
+      appAdsLink: "App-ads.txt Datei",
+      githubLink: "GitHub-Repository",
+      developerTitle: "Entwicklerinformationen",
+      developerStatus: "<strong>App-ads.txt Status:</strong> Aktiv",
+      footerText: "© 2025 Blue Air. Alle Rechte vorbehalten."
+    },
+    ja: {
+      title: "🌤️ Blue Air - 天気予報アプリ",
+      description: "モダンで使いやすい天気予報アプリ。リアルタイムの天気情報、5日間予報、楽しいミニゲーム！",
+      featuresTitle: "機能",
+      feature1Title: "🌍 多言語対応",
+      feature1Desc: "トルコ語、英語、日本語、ドイツ語、ポルトガル語で利用可能",
+      feature2Title: "🎨 テーマ選択",
+      feature2Desc: "好みに応じてライト、ダーク、自動テーマから選択可能",
+      feature3Title: "📍 GPS位置情報サポート",
+      feature3Desc: "正確な天気情報のために自動的に位置を検出",
+      feature4Title: "🔍 都市検索",
+      feature4Desc: "世界中のどの都市の天気情報も検索可能",
+      feature5Title: "⭐ お気に入りの都市を保存",
+      feature5Desc: "よく訪れる都市をクイックアクセス用に保存",
+      feature6Title: "⏱️ 詳細な予報",
+      feature6Desc: "3時間ごとの更新と5日間の天気予報",
+      feature7Title: "🌦️ アニメーション天気アイコン",
+      feature7Desc: "美しく直感的な天気表現のためのLottieアニメーション",
+      feature8Title: "☔ 傘雨キャッチゲーム",
+      feature8Desc: "天気をチェックしながら楽しめるミニゲーム",
+      feature9Title: "🔔 バックグラウンド通知",
+      feature9Desc: "アプリを閉じていても重要な天気アラートを受信",
+      feature10Title: "📱 モダンデザイン",
+      feature10Desc: "クリーンなエッジツーエッジインターフェースと直感的なナビゲーション",
+      contactTitle: "お問い合わせ",
+      contact: "質問とサポート: <strong>nova.orion.dev@gmail.com</strong>",
+      linksTitle: "リンク",
+      appAdsLink: "App-ads.txtファイル",
+      githubLink: "GitHubリポジトリ",
+      developerTitle: "開発者情報",
+      developerStatus: "<strong>App-ads.txtステータス:</strong> アクティブ",
+      footerText: "© 2025 Blue Air. All rights reserved."
+    },
+    pt: {
+      title: "🌤️ Blue Air - Aplicativo de Clima",
+      description: "Aplicativo de clima moderno e amigável. Informações climáticas em tempo real, previsão de 5 dias e mini-jogo divertido!",
+      featuresTitle: "Recursos",
+      feature1Title: "🌍 Suporte Multi-idioma",
+      feature1Desc: "Disponível em Turco, Inglês, Japonês, Alemão e Português",
+      feature2Title: "🎨 Seleção de Tema",
+      feature2Desc: "Escolha entre temas Claro, Escuro ou Automático baseado na sua preferência",
+      feature3Title: "📍 Suporte à Localização GPS",
+      feature3Desc: "Detecte automaticamente sua localização para informações climáticas precisas",
+      feature4Title: "🔍 Busca de Cidade",
+      feature4Desc: "Busque informações climáticas em qualquer cidade ao redor do mundo",
+      feature5Title: "⭐ Salve Cidades Favoritas",
+      feature5Desc: "Salve suas cidades frequentemente visitadas para acesso rápido",
+      feature6Title: "⏱️ Previsões Detalhadas",
+      feature6Desc: "Atualizações a cada 3 horas e previsões climáticas de 5 dias",
+      feature7Title: "🌦️ Ícones Animados de Clima",
+      feature7Desc: "Animações Lottie para representações climáticas bonitas e intuitivas",
+      feature8Title: "☔ Jogo Guarda-Chuva Pega Chuva",
+      feature8Desc: "Mini-jogo divertido para aproveitar enquanto verifica o clima",
+      feature9Title: "🔔 Notificações em Segundo Plano",
+      feature9Desc: "Receba alertas climáticos importantes mesmo quando o aplicativo estiver fechado",
+      feature10Title: "📱 Design Moderno",
+      feature10Desc: "Interface edge-to-edge limpa com navegação intuitiva",
+      contactTitle: "Contato",
+      contact: "Para perguntas e suporte: <strong>nova.orion.dev@gmail.com</strong>",
+      linksTitle: "Links",
+      appAdsLink: "Arquivo App-ads.txt",
+      githubLink: "Repositório GitHub",
+      developerTitle: "Informações do Desenvolvedor",
+      developerStatus: "<strong>Status do App-ads.txt:</strong> Ativo",
+      footerText: "© 2025 Blue Air. Todos os direitos reservados."
     }
   };
 
-  const languageSelect = document.getElementById('language');
-  languageSelect.addEventListener('change', (e) => {
-    const lang = e.target.value;
+  // Apply CSS to improve dark mode text visibility for all section headers
+  document.addEventListener('DOMContentLoaded', function() {
+    // Function to set the language based on dropdown
+    const languageSelect = document.getElementById('language');
+    languageSelect.addEventListener('change', (e) => {
+      const lang = e.target.value;
+      changeLanguage(lang);
+    });
+    
+    // Set initial language based on browser language if available
+    const browserLang = navigator.language.split('-')[0];
+    if (['en', 'tr', 'de', 'ja', 'pt'].includes(browserLang)) {
+      languageSelect.value = browserLang;
+    }
+    
+    // Apply initial language
+    changeLanguage(languageSelect.value);
+    
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    
+    // Always start in dark mode, but check for saved preference
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme === 'light') {
+      body.classList.add('light');
+      themeToggle.checked = false;
+    } else {
+      // Default to dark mode
+      body.classList.add('dark');
+      themeToggle.checked = true;
+      // If no theme is saved yet, save dark as default
+      if (!savedTheme) {
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+    
+    themeToggle.addEventListener('change', () => {
+      if (themeToggle.checked) {
+        body.classList.remove('light');
+        body.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        body.classList.remove('dark');
+        body.classList.add('light');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  });
+  
+  // Function to change language
+  function changeLanguage(lang) {
     document.getElementById('title').innerHTML = texts[lang].title;
     document.getElementById('description').innerHTML = texts[lang].description;
     document.getElementById('features-title').innerHTML = texts[lang].featuresTitle;
@@ -635,39 +803,7 @@
     document.getElementById('developer-title').innerHTML = texts[lang].developerTitle;
     document.getElementById('developer-status').innerHTML = texts[lang].developerStatus;
     document.getElementById('footer-text').innerHTML = texts[lang].footerText;
-  });
-
-  // Theme toggle
-  const themeToggle = document.getElementById('theme-toggle');
-  const body = document.body;
-  
-  // Always start in dark mode, but check for saved preference
-  const savedTheme = localStorage.getItem('theme');
-  
-  if (savedTheme === 'light') {
-    body.classList.add('light');
-    themeToggle.checked = false;
-  } else {
-    // Default to dark mode
-    body.classList.add('dark');
-    themeToggle.checked = true;
-    // If no theme is saved yet, save dark as default
-    if (!savedTheme) {
-      localStorage.setItem('theme', 'dark');
-    }
   }
-  
-  themeToggle.addEventListener('change', () => {
-    if (themeToggle.checked) {
-      body.classList.remove('light');
-      body.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      body.classList.remove('dark');
-      body.classList.add('light');
-      localStorage.setItem('theme', 'light');
-    }
-  });
 </script>
 </body>
 </html>
