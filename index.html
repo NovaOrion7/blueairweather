@@ -1,93 +1,115 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blue Air - Hava Durumu Uygulaması</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: linear-gradient(135deg, #87ceeb, #1B2A40);
-            color: white;
-            min-height: 100vh;
-        }
-        .container {
-            background: rgba(0,0,0,0.3);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-        }
-        h1 { margin-bottom: 20px; }
-        .download-buttons {
-            margin: 30px 0;
-        }
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            margin: 10px;
-            background: #4caf50;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-        }
-        .btn:hover {
-            background: #45a049;
-        }
-        .features {
-            text-align: left;
-            margin: 20px 0;
-        }
-        .features li {
-            margin: 10px 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blue Air - Hava Durumu Uygulaması</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Blue Air - Modern ve kullanıcı dostu hava durumu uygulaması. Gerçek zamanlı hava bilgisi, 5 günlük tahmin ve eğlenceli mini oyun!">
+  <meta name="keywords" content="hava durumu, weather app, blue air, android, ios, hava">
+  <meta property="og:title" content="Blue Air - Hava Durumu Uygulaması">
+  <meta property="og:description" content="Gerçek zamanlı hava durumu, 5 günlük tahmin ve eğlenceli mini oyun!">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://novaorion7.github.io/blueairweather/preview.png">
+  <meta property="og:url" content="https://novaorion7.github.io/blueairweather/">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #87ceeb, #1B2A40);
+      color: white;
+      min-height: 100vh;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .container {
+      background: rgba(0,0,0,0.3);
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+    }
+    h1 { margin-bottom: 20px; }
+    .download-buttons {
+      margin: 30px 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 15px 30px;
+      margin: 10px;
+      background: #4caf50;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #45a049;
+    }
+    .features {
+      text-align: left;
+      margin: 20px 0;
+    }
+    .features li {
+      margin: 10px 0;
+    }
+    a {
+      color: #87ceeb;
+      text-decoration: underline;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1> Blue Air - Hava Durumu Uygulaması</h1>
-        
-        <p>Modern ve kullanıcı dostu hava durumu uygulaması. Gerçek zamanlı hava durumu bilgileri, 5 günlük tahmin ve eğlenceli mini oyun!</p>
-        
-        <div class="download-buttons">
-            <a href="#" class="btn" style="background: #666; cursor: not-allowed;" onclick="alert('Uygulama yakında Google Play Store\'da yayınlanacak!'); return false;"> Google Play'de Yakında</a>
-            <a href="#" class="btn" style="background: #666; cursor: not-allowed;" onclick="alert('iOS versiyonu geliştirme aşamasında!'); return false;"> App Store (Geliştiriliyor)</a>
-        </div>
-        
-        <h2> Özellikler</h2>
-        <ul class="features">
-            <li> Çoklu dil desteği (Türkçe, İngilizce, Japonca, Almanca, Portekizce)</li>
-            <li> Tema seçimi (Açık / Koyu / Otomatik)</li>
-            <li> GPS tabanlı konum desteği</li>
-            <li> Şehir arama sistemi</li>
-            <li> Favori şehirler kaydetme</li>
-            <li> 3 saatlik ve 5 günlük tahmin</li>
-            <li> Lottie animasyonlu hava durumu ikonları</li>
-            <li> Şemsiye Yağmur Yakalama mini oyunu</li>
-            <li> Arka plan bildirimleri</li>
-            <li> Modern edge-to-edge tasarım</li>
-        </ul>
-        
-        <h2> İletişim</h2>
-        <p>Sorularınız için: <strong>nova.orion.dev@gmail.com</strong></p>
-        
-        <h2> Bağlantılar</h2>
-        <p>
-            <a href="https://novaorion7.github.io/blueairweather/app-ads.txt" target="_blank" style="color: #87ceeb;">App-ads.txt Dosyası</a> |
-            <a href="https://github.com/NovaOrion7/blueairweather" target="_blank" style="color: #87ceeb;">GitHub</a>
-        </p>
-        
-        <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; margin: 20px 0; font-size: 14px;">
-            <h3> Geliştirici Bilgileri</h3>
-            <p><strong>App-ads.txt Durumu:</strong>  Aktif</p>
-        </div>
-        
-        <footer style="margin-top: 40px; font-size: 14px; opacity: 0.8;">
-            <p> 2025 Blue Air. Tüm hakları saklıdır.</p>
-        </footer>
+  <div class="container">
+    <h1>Blue Air - Hava Durumu Uygulaması</h1>
+    
+    <p>Modern ve kullanıcı dostu hava durumu uygulaması. Gerçek zamanlı hava durumu bilgileri, 5 günlük tahmin ve eğlenceli mini oyun!</p>
+    
+    <div class="download-buttons">
+      <a href="#" class="btn" style="background: #666; cursor: not-allowed;" onclick="alert('Uygulama yakında Google Play Store\'da yayınlanacak!'); return false;">Google Play'de Yakında</a>
+      <a href="#" class="btn" style="background: #666; cursor: not-allowed;" onclick="alert('iOS versiyonu geliştirme aşamasında!'); return false;">App Store (Geliştiriliyor)</a>
     </div>
+    
+    <h2>Özellikler</h2>
+    <ul class="features">
+      <li>Çoklu dil desteği (Türkçe, İngilizce, Japonca, Almanca, Portekizce)</li>
+      <li>Tema seçimi (Açık / Koyu / Otomatik)</li>
+      <li>GPS tabanlı konum desteği</li>
+      <li>Şehir arama sistemi</li>
+      <li>Favori şehirler kaydetme</li>
+      <li>3 saatlik ve 5 günlük tahmin</li>
+      <li>Lottie animasyonlu hava durumu ikonları</li>
+      <li>Şemsiye Yağmur Yakalama mini oyunu</li>
+      <li>Arka plan bildirimleri</li>
+      <li>Modern edge-to-edge tasarım</li>
+    </ul>
+    
+    <h2>İletişim</h2>
+    <p>Sorularınız için: <strong>nova.orion.dev@gmail.com</strong></p>
+    
+    <h2>Bağlantılar</h2>
+    <p>
+      <a href="https://novaorion7.github.io/blueairweather/app-ads.txt" target="_blank">App-ads.txt Dosyası</a> |
+      <a href="https://github.com/NovaOrion7/blueairweather" target="_blank">GitHub</a>
+    </p>
+    
+    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; margin: 20px 0; font-size: 14px;">
+      <h3>Geliştirici Bilgileri</h3>
+      <p><strong>App-ads.txt Durumu:</strong> Aktif</p>
+    </div>
+    
+    <footer>
+      <p>2025 Blue Air. Tüm hakları saklıdır.</p>
+    </footer>
+  </div>
 </body>
 </html>
