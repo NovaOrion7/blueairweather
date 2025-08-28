@@ -59,6 +59,7 @@
   body.dark h3 {
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.5px;
   }
 
   .container {
@@ -162,6 +163,8 @@
   
   body.dark .feature-card h3 {
     color: #a8d8ff;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.5px;
   }
 
   .feature-card p {
@@ -187,7 +190,8 @@
   
   body.dark a {
     color: #a8d8ff;
-    font-weight: 500;
+    font-weight: 600;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.2);
   }
   
   body.dark a:hover {
@@ -286,6 +290,65 @@
     flex-wrap: wrap;
   }
 
+  /* Language buttons */
+  .language-buttons {
+    display: flex;
+    gap: 5px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px;
+    overflow: hidden;
+    align-items: center;
+  }
+  
+  .lang-icon {
+    margin-left: 5px;
+    margin-right: 3px;
+    font-size: 1rem;
+  }
+  
+  body.light .language-buttons {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  .lang-btn {
+    padding: 5px 10px;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+  }
+  
+  body.light .lang-btn {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .lang-btn.active {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  body.light .lang-btn.active {
+    background-color: #2980b9;
+    color: white;
+  }
+  
+  .lang-btn:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  body.light .lang-btn:hover:not(.active) {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.8);
+  }
+  
+
+
   select {
     padding: 10px 15px;
     border-radius: 30px;
@@ -297,6 +360,27 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     font-size: 1rem;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="6"><path d="M0 0h12L6 6z" fill="%23fff"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 30px;
+  }
+  
+  /* Style dropdown options */
+  select option {
+    background-color: #1B2A40;
+    color: #ffffff;
+    font-weight: 500;
+    padding: 10px;
+    border: none;
+  }
+  
+  body.light select option {
+    background-color: #ffffff;
+    color: #0f3450;
   }
 
   body.light select {
@@ -311,6 +395,18 @@
 
   body.light select:hover {
     background: rgba(255, 255, 255, 0.9);
+  }
+
+  body.dark select {
+    background: rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+  }
+  
+  body.dark select:hover {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
   }
 
   .theme-toggle {
@@ -385,6 +481,12 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     color: #333;
   }
+  
+  body.dark .info-box {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #e6e6e6;
+  }
 
   .info-box h3 {
     margin-bottom: 10px;
@@ -402,6 +504,11 @@
   body.light .links-section {
     background: rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.15);
+  }
+
+  body.dark .links-section {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.15);
   }
 
   .links-section a {
@@ -461,6 +568,18 @@
       width: 80%;
     }
   }
+
+
+
+  body.light select {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="6"><path d="M0 0h12L6 6z" fill="%23333"/></svg>');
+  }
+
+  body.dark p {
+    color: #e6e6e6;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+  }
+
 </style>
 </head>
 <body class="dark">
@@ -472,13 +591,14 @@
 
 <div class="container">
   <div class="controls">
-    <select id="language">
-      <option value="en">English</option>
-      <option value="tr">Türkçe</option>
-      <option value="de">Deutsch</option>
-      <option value="ja">日本語</option>
-      <option value="pt">Português</option>
-    </select>
+    <div class="language-buttons">
+      <span class="lang-icon">🌐</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="tr">TR</button>
+      <button class="lang-btn" data-lang="de">DE</button>
+      <button class="lang-btn" data-lang="ja">JA</button>
+      <button class="lang-btn" data-lang="pt">PT</button>
+    </div>
     
     <div class="theme-toggle">
       <span>🌞</span>
@@ -734,21 +854,37 @@
 
   // Apply CSS to improve dark mode text visibility for all section headers
   document.addEventListener('DOMContentLoaded', function() {
-    // Function to set the language based on dropdown
-    const languageSelect = document.getElementById('language');
-    languageSelect.addEventListener('change', (e) => {
-      const lang = e.target.value;
-      changeLanguage(lang);
-    });
+    // Language button functionality
+    const langButtons = document.querySelectorAll('.lang-btn');
     
-    // Set initial language based on browser language if available
+    // Set initial active button based on browser language
     const browserLang = navigator.language.split('-')[0];
+    let initialLang = 'en'; // Default to English
+    
     if (['en', 'tr', 'de', 'ja', 'pt'].includes(browserLang)) {
-      languageSelect.value = browserLang;
+      initialLang = browserLang;
     }
     
+    // Set initial active state and apply language
+    langButtons.forEach(btn => {
+      if (btn.dataset.lang === initialLang) {
+        btn.classList.add('active');
+      }
+      
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        langButtons.forEach(b => b.classList.remove('active'));
+        
+        // Add active class to clicked button
+        btn.classList.add('active');
+        
+        // Apply the language
+        changeLanguage(btn.dataset.lang);
+      });
+    });
+    
     // Apply initial language
-    changeLanguage(languageSelect.value);
+    changeLanguage(initialLang);
     
     // Theme toggle functionality
     const themeToggle = document.getElementById('theme-toggle');
@@ -803,6 +939,9 @@
     document.getElementById('developer-title').innerHTML = texts[lang].developerTitle;
     document.getElementById('developer-status').innerHTML = texts[lang].developerStatus;
     document.getElementById('footer-text').innerHTML = texts[lang].footerText;
+    
+    // Save the current language preference
+    localStorage.setItem('preferred-language', lang);
   }
 </script>
 </body>
