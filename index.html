@@ -16,49 +16,67 @@
 
   <style>
     body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      max-width: 900px;
       margin: 0 auto;
       padding: 20px;
-      background: linear-gradient(135deg, #87ceeb, #1B2A40);
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
       color: white;
       min-height: 100vh;
       font-size: 16px;
       line-height: 1.6;
     }
     .container {
-      background: rgba(0,0,0,0.3);
+      background: rgba(255, 255, 255, 0.1);
       padding: 30px;
-      border-radius: 15px;
+      border-radius: 20px;
       text-align: center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
-    h1 { margin-bottom: 20px; }
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2.2em;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
     .download-buttons {
       margin: 30px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
     }
-    .btn {
+    .badge {
+      height: 60px;
+      transition: transform 0.3s;
+    }
+    .badge:hover {
+      transform: scale(1.05);
+    }
+    .btn-disabled {
       display: inline-block;
       padding: 15px 30px;
-      margin: 10px;
-      background: #4caf50;
-      color: white;
-      text-decoration: none;
+      background: rgba(255,255,255,0.2);
+      color: #ddd;
       border-radius: 8px;
       font-weight: bold;
-      transition: background 0.3s;
-    }
-    .btn:hover {
-      background: #45a049;
+      cursor: not-allowed;
     }
     .features {
-      text-align: left;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
       margin: 20px 0;
     }
-    .features li {
-      margin: 10px 0;
+    .feature-card {
+      background: rgba(255,255,255,0.15);
+      padding: 15px;
+      border-radius: 12px;
+      text-align: left;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
     a {
-      color: #87ceeb;
+      color: #ffea94;
       text-decoration: underline;
     }
     footer {
@@ -70,28 +88,33 @@
 </head>
 <body>
   <div class="container">
-    <h1>Blue Air - Hava Durumu Uygulaması</h1>
+    <h1>🌤️ Blue Air - Hava Durumu Uygulaması</h1>
     
     <p>Modern ve kullanıcı dostu hava durumu uygulaması. Gerçek zamanlı hava durumu bilgileri, 5 günlük tahmin ve eğlenceli mini oyun!</p>
     
     <div class="download-buttons">
-      <a href="https://play.google.com/store/apps/details?id=com.ismailjacob.blueAir" class="btn" target="_blank">Google Play'den İndir</a>
-      <a href="#" class="btn" style="background: #666; cursor: not-allowed;" onclick="alert('iOS versiyonu geliştirme aşamasında!'); return false;">App Store (Geliştiriliyor)</a>
+      <!-- Google Play Badge -->
+      <a href="https://play.google.com/store/apps/details?id=com.ismailjacob.blueAir" target="_blank">
+        <img class="badge" src="https://play.google.com/intl/en_us/badges/static/images/badges/tr_badge_web_generic.png" alt="Google Play'den İndir">
+      </a>
+      
+      <!-- App Store Buton (pasif) -->
+      <span class="btn-disabled">App Store (Geliştiriliyor)</span>
     </div>
     
     <h2>Özellikler</h2>
-    <ul class="features">
-      <li>Çoklu dil desteği (Türkçe, İngilizce, Japonca, Almanca, Portekizce)</li>
-      <li>Tema seçimi (Açık / Koyu / Otomatik)</li>
-      <li>GPS tabanlı konum desteği</li>
-      <li>Şehir arama sistemi</li>
-      <li>Favori şehirler kaydetme</li>
-      <li>3 saatlik ve 5 günlük tahmin</li>
-      <li>Lottie animasyonlu hava durumu ikonları</li>
-      <li>Şemsiye Yağmur Yakalama mini oyunu</li>
-      <li>Arka plan bildirimleri</li>
-      <li>Modern edge-to-edge tasarım</li>
-    </ul>
+    <div class="features">
+      <div class="feature-card">🌍 Çoklu dil desteği (Türkçe, İngilizce, Japonca, Almanca, Portekizce)</div>
+      <div class="feature-card">🎨 Tema seçimi (Açık / Koyu / Otomatik)</div>
+      <div class="feature-card">📍 GPS tabanlı konum desteği</div>
+      <div class="feature-card">🔍 Şehir arama sistemi</div>
+      <div class="feature-card">⭐ Favori şehirler kaydetme</div>
+      <div class="feature-card">⏱️ 3 saatlik ve 5 günlük tahmin</div>
+      <div class="feature-card">🌦️ Lottie animasyonlu hava durumu ikonları</div>
+      <div class="feature-card">☔ Şemsiye Yağmur Yakalama mini oyunu</div>
+      <div class="feature-card">🔔 Arka plan bildirimleri</div>
+      <div class="feature-card">📱 Modern edge-to-edge tasarım</div>
+    </div>
     
     <h2>İletişim</h2>
     <p>Sorularınız için: <strong>nova.orion.dev@gmail.com</strong></p>
@@ -102,7 +125,7 @@
       <a href="https://github.com/NovaOrion7/blueairweather" target="_blank">GitHub</a>
     </p>
     
-    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; margin: 20px 0; font-size: 14px;">
+    <div style="background: rgba(255,255,255,0.15); padding: 15px; border-radius: 12px; margin: 20px 0; font-size: 14px; text-align:center;">
       <h3>Geliştirici Bilgileri</h3>
       <p><strong>App-ads.txt Durumu:</strong> Aktif</p>
     </div>
