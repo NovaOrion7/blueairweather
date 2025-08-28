@@ -1,122 +1,215 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blue Air - Hava Durumu Uygulaması</title>
-  
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Blue Air - Modern ve kullanıcı dostu hava durumu uygulaması. Gerçek zamanlı hava bilgisi, 5 günlük tahmin ve eğlenceli mini oyun!">
-  <meta name="keywords" content="hava durumu, weather app, blue air, android, hava, forecast">
-  <meta property="og:title" content="Blue Air - Hava Durumu Uygulaması">
-  <meta property="og:description" content="Gerçek zamanlı hava durumu, 5 günlük tahmin ve eğlenceli mini oyun!">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://novaorion7.github.io/blueairweather/preview.png">
-  <meta property="og:url" content="https://novaorion7.github.io/blueairweather/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blue Air - Hava Durumu Uygulaması</title>
 
-  <style>
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
-      background: linear-gradient(135deg, #1B2A40, #0f172a);
-      color: #f1f1f1;
-      min-height: 100vh;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-    .container {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 30px;
-      border-radius: 20px;
-      text-align: center;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-    }
-    h1 {
-      margin-bottom: 20px;
-      font-size: 2.2em;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-    }
-    .download-buttons {
-      margin: 30px 0;
-    }
-    .badge {
-      height: 60px;
-      transition: transform 0.3s;
-    }
-    .badge:hover {
-      transform: scale(1.05);
-    }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-      margin: 20px 0;
-    }
-    .feature-card {
-      background: rgba(255,255,255,0.08);
-      padding: 15px;
-      border-radius: 12px;
-      text-align: left;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-    a {
-      color: #87ceeb;
-      text-decoration: underline;
-    }
-    footer {
-      margin-top: 40px;
-      font-size: 14px;
-      opacity: 0.8;
-    }
-  </style>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg-gradient-light: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    --bg-gradient-dark: linear-gradient(135deg, #1B2A40, #0f172a);
+    --text-light: #f1f1f1;
+    --text-dark: #111;
+    --card-light: rgba(255,255,255,0.15);
+    --card-dark: rgba(0,0,0,0.25);
+  }
+
+  body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0; padding: 0;
+    transition: background 0.5s, color 0.5s;
+    color: var(--text-light);
+    min-height: 100vh;
+    background: var(--bg-gradient-dark);
+  }
+
+  body.light { background: var(--bg-gradient-light); color: var(--text-dark); }
+  body.dark { background: var(--bg-gradient-dark); color: var(--text-light); }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  }
+
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  }
+
+  h2 { margin-top: 30px; }
+
+  .download-buttons { margin: 30px 0; }
+  .badge { height: 60px; transition: transform 0.3s; }
+  .badge:hover { transform: scale(1.08); }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+  }
+
+  .feature-card {
+    background: var(--card-dark);
+    padding: 18px;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+
+  body.light .feature-card { background: var(--card-light); }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+  }
+
+  a { color: #87ceeb; text-decoration: none; transition: color 0.3s; }
+  a:hover { color: #ffea94; }
+
+  footer { margin-top: 40px; font-size: 14px; opacity: 0.8; }
+
+  /* Bulut animasyonu */
+  .cloud {
+    position: fixed;
+    top: 50px;
+    width: 200px; height: 60px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 100px;
+    animation: moveCloud 60s linear infinite;
+    z-index: -1;
+  }
+  .cloud:nth-child(2) { top: 150px; width: 250px; animation-duration: 90s; }
+  .cloud:nth-child(3) { top: 250px; width: 180px; animation-duration: 75s; }
+  @keyframes moveCloud { 0% { left: -250px; } 100% { left: 100%; } }
+
+  /* Kontroller */
+  .controls { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; }
+  select { padding: 5px 12px; border-radius: 5px; border: none; font-weight: 600; cursor: pointer; }
+</style>
 </head>
-<body>
-  <div class="container">
-    <h1>🌤️ Blue Air - Hava Durumu Uygulaması</h1>
-    
-    <p>Modern ve kullanıcı dostu hava durumu uygulaması. Gerçek zamanlı hava durumu bilgileri, 5 günlük tahmin ve eğlenceli mini oyun!</p>
-    
-    <div class="download-buttons">
-      <!-- Google Play Badge -->
-      <a href="https://play.google.com/store/apps/details?id=com.ismailjacob.blueAir" target="_blank">
-        <img class="badge" src="https://play.google.com/intl/en_us/badges/static/images/badges/tr_badge_web_generic.png" alt="Google Play'den İndir">
-      </a>
-    </div>
-    
-    <h2>Özellikler</h2>
-    <div class="features">
-      <div class="feature-card">🌍 Çoklu dil desteği (Türkçe, İngilizce, Japonca, Almanca, Portekizce)</div>
-      <div class="feature-card">🎨 Tema seçimi (Açık / Koyu / Otomatik)</div>
-      <div class="feature-card">📍 GPS tabanlı konum desteği</div>
-      <div class="feature-card">🔍 Şehir arama sistemi</div>
-      <div class="feature-card">⭐ Favori şehirler kaydetme</div>
-      <div class="feature-card">⏱️ 3 saatlik ve 5 günlük tahmin</div>
-      <div class="feature-card">🌦️ Lottie animasyonlu hava durumu ikonları</div>
-      <div class="feature-card">☔ Şemsiye Yağmur Yakalama mini oyunu</div>
-      <div class="feature-card">🔔 Arka plan bildirimleri</div>
-      <div class="feature-card">📱 Modern edge-to-edge tasarım</div>
-    </div>
-    
-    <h2>İletişim</h2>
-    <p>Sorularınız için: <strong>nova.orion.dev@gmail.com</strong></p>
-    
-    <h2>Bağlantılar</h2>
-    <p>
-      <a href="https://novaorion7.github.io/blueairweather/app-ads.txt" target="_blank">App-ads.txt Dosyası</a> |
-      <a href="https://github.com/NovaOrion7/blueairweather" target="_blank">GitHub</a>
-    </p>
-    
-    <div style="background: rgba(255,255,255,0.08); padding: 15px; border-radius: 12px; margin: 20px 0; font-size: 14px; text-align:center;">
-      <h3>Geliştirici Bilgileri</h3>
-      <p><strong>App-ads.txt Durumu:</strong> Aktif</p>
-    </div>
-    
-    <footer>
-      <p>2025 Blue Air. Tüm hakları saklıdır.</p>
-    </footer>
+<body class="dark">
+
+<!-- Bulutlar -->
+<div class="cloud"></div>
+<div class="cloud"></div>
+<div class="cloud"></div>
+
+<div class="container">
+  <div class="controls">
+    <select id="language">
+      <option value="tr">Türkçe</option>
+      <option value="en">English</option>
+    </select>
+    <select id="theme">
+      <option value="auto">Otomatik</option>
+      <option value="light">Açık Tema</option>
+      <option value="dark">Koyu Tema</option>
+    </select>
   </div>
+
+  <h1 id="title">🌤️ Blue Air - Hava Durumu Uygulaması</h1>
+  <p id="description">Modern ve kullanıcı dostu hava durumu uygulaması. Gerçek zamanlı hava durumu bilgileri, 5 günlük tahmin ve mini oyun!</p>
+
+  <div class="download-buttons">
+    <a href="https://play.google.com/store/apps/details?id=com.ismailjacob.blueAir" target="_blank">
+      <img class="badge" src="https://play.google.com/intl/en_us/badges/static/images/badges/tr_badge_web_generic.png" alt="Google Play'den İndir">
+    </a>
+  </div>
+
+  <h2 id="features-title">Özellikler</h2>
+  <div class="features" id="features-list">
+    <div class="feature-card">🌍 Çoklu dil desteği (Türkçe, İngilizce, Japonca, Almanca, Portekizce)</div>
+    <div class="feature-card">🎨 Tema seçimi (Açık / Koyu / Otomatik)</div>
+    <div class="feature-card">📍 GPS tabanlı konum desteği</div>
+    <div class="feature-card">🔍 Şehir arama sistemi</div>
+    <div class="feature-card">⭐ Favori şehirler kaydetme</div>
+    <div class="feature-card">⏱️ 3 saatlik ve 5 günlük tahmin</div>
+    <div class="feature-card">🌦️ Lottie animasyonlu hava durumu ikonları</div>
+    <div class="feature-card">☔ Şemsiye Yağmur Yakalama mini oyunu</div>
+    <div class="feature-card">🔔 Arka plan bildirimleri</div>
+    <div class="feature-card">📱 Modern edge-to-edge tasarım</div>
+  </div>
+
+  <h2 id="contact-title">İletişim</h2>
+  <p id="contact">Sorularınız için: <strong>nova.orion.dev@gmail.com</strong></p>
+
+  <h2 id="links-title">Bağlantılar</h2>
+  <p>
+    <a href="https://novaorion7.github.io/blueairweather/app-ads.txt" target="_blank">App-ads.txt Dosyası</a> |
+    <a href="https://github.com/NovaOrion7/blueairweather" target="_blank">GitHub</a>
+  </p>
+
+  <div style="background: rgba(255,255,255,0.08); padding: 15px; border-radius: 12px; margin: 20px 0; font-size: 14px; text-align:center;">
+    <h3 id="developer-title">Geliştirici Bilgileri</h3>
+    <p><strong>App-ads.txt Durumu:</strong> Aktif</p>
+  </div>
+
+  <footer>
+    <p>2025 Blue Air. Tüm hakları saklıdır.</p>
+  </footer>
+</div>
+
+<script>
+  // Dil desteği
+  const texts = {
+    tr: {
+      title: "🌤️ Blue Air - Hava Durumu Uygulaması",
+      description: "Modern ve kullanıcı dostu hava durumu uygulaması. Gerçek zamanlı hava durumu bilgileri, 5 günlük tahmin ve mini oyun!",
+      featuresTitle: "Özellikler",
+      contactTitle: "İletişim",
+      contact: "Sorularınız için: <strong>nova.orion.dev@gmail.com</strong>",
+      linksTitle: "Bağlantılar",
+      developerTitle: "Geliştirici Bilgileri"
+    },
+    en: {
+      title: "🌤️ Blue Air - Weather App",
+      description: "Modern and user-friendly weather app. Real-time weather info, 5-day forecast, and fun mini game!",
+      featuresTitle: "Features",
+      contactTitle: "Contact",
+      contact: "For questions: <strong>nova.orion.dev@gmail.com</strong>",
+      linksTitle: "Links",
+      developerTitle: "Developer Info"
+    }
+  }
+
+  const languageSelect = document.getElementById('language');
+  languageSelect.addEventListener('change', (e) => {
+    const lang = e.target.value;
+    document.getElementById('title').innerHTML = texts[lang].title;
+    document.getElementById('description').innerHTML = texts[lang].description;
+    document.getElementById('features-title').innerHTML = texts[lang].featuresTitle;
+    document.getElementById('contact-title').innerHTML = texts[lang].contactTitle;
+    document.getElementById('contact').innerHTML = texts[lang].contact;
+    document.getElementById('links-title').innerHTML = texts[lang].linksTitle;
+    document.getElementById('developer-title').innerHTML = texts[lang].developerTitle;
+  });
+
+  // Tema desteği
+  const themeSelect = document.getElementById('theme');
+  function setTheme(mode) {
+    if(mode === 'auto') {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.body.className = prefersDark ? 'dark' : 'light';
+    } else {
+      document.body.className = mode;
+    }
+  }
+  themeSelect.addEventListener('change', (e) => setTheme(e.target.value));
+  setTheme('auto');
+</script>
 </body>
 </html>
